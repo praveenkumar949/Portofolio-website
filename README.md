@@ -18,4 +18,6 @@ This is a responsive personal portfolio website created using HTML, CSS, and Jav
 + **Home:** Overview and welcome message.  
 + **About Me:** Information on skills, experience, and education.  
 + **Projects:** Portfolio showcasing completed projects.  
-+ **Contact:** A form to send messages directly.  
++ **Contact:** A form to send messages directly.
+## Contributing
+Contributions are welcome! Feel free to fork the project and submit pull requests.
