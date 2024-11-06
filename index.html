@@ -1,0 +1,298 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+</head>
+ <body> <!-- . shortcut for creating class and # for creating id -->
+<div id="header">
+    <div class="container">
+        <nav>
+            <img src="images/Pravee.png" class="logo">
+            <ul id="sidemenu">
+                <li><a href="#header" style="--i:1" class="active"><b>Home</b></a></li>
+                <li><a href="#about" style="--i:2"><b>About</b></a></li>
+                <li><a href="#skill" style="--i:3"><b>Skills</b></a></li>
+                <li><a href="#project" style="--i:4"><b>Projects</b></a></li>
+                <li><a href="#contact" style="--i:5"><b>Contact</b></a></li>
+                <i class='bx bx-x-circle' style="color: rgb(173, 37, 64);" onclick="closemenu()"></i>
+            </ul>
+            <i class='bx bx-menu' style='color:#36c8d3' onclick="openmenu()" ></i>
+        </nav>
+        <div class="header-text">
+        <P>Portofolio.</P>
+        <h1>Hello, Myself <br><span>Patakokila Praveen<br> Kumar</h1></span>
+        <h2>from Andhra Pradesh<br> And I'm a <span class="text"></span></h2>
+            <a href="#about" class="btn-box">More About Me</a>
+        </div>
+    
+    </div>
+</div> 
+
+
+<!--------about------->
+<div id="about">
+    <div class="container">
+        <div class="row">
+            <div class="about-col-1">
+                <img src="images/photo2.png.jpg">
+                <a href="images/Photo Resume.pdf" download class="resume"><i class='bx bxs-download' style='color:#35dcd3'  ></i>Download Resume</a>
+            </div>
+            <div class="about-col-2">
+                <h1 class="sub-title">About me</h1>
+                <p><span class="para"></span></p>
+                <div class="tab-titles">
+                   <!--<p class="tab-links active-link" onclick="opentab('skills')">Skills</p>--> 
+                    
+                    <p class="tab-links" onclick="opentab('education')" style="--i:6"><b>Education</b></p>
+                    <p class="tab-links" onclick="opentab('certifications')" style="--i:7"><b>Certifications</b></p>
+                    <p class="tab-links" onclick="opentab('internship')" style="--i:8"><b>Internship</b></p>
+                    <p class="tab-links" onclick="opentab('hobbies')" style="--i:9"><b>Hobbies</b></p>
+                </div> 
+               <!-- <div class="tab-contents active-tab" id="skills">
+                    <ul>
+                        <li><span>Programming Languages</span><br>Pyhton,C++,Java</li>
+                        <li><span>Web development</span><br>Html,Css,Java Script</li>
+                        <li><span>Cs Fundamentals</span><br>Dsa,Computer Networks,Oops,Dbms,Sql</li>
+                    </ul>
+                </div>-->
+                
+                <div class="tab-contents" id="education">
+                    <ul>
+                        <li><span>Metriculation(2019-2020)</span><br>Smt Annapurna Vidya Nikentan, Velivennu, Aggregate-97%</li>
+                        <li><span>intermediate(2020-2022)</span><br>Sasi junior college, Velivennu, Aggregate-94%</li>
+                        <li><span>Graduation(2022-current)</span><br>Lovely Professional Unversity, Punjab</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="certifications">
+                    <ul>
+                        <li><span>Hacker Rank</span><br>Python Basics, Problem solving</li>
+                        <li><span>Coursera</span><br>Generative Artificial Intilligence(Gen Ai),Data Analysis and Aglorithms</li>
+                        <li><span>Udemy</span><br>Data Structures and Algorithms</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="internship">
+                    <ul>
+                        <li><span>Online</span><br>GeekForGreeks Complete interview preparation course</li>
+                        <li><span>Academor</span><br>Industrial training in Machine learing from IIT kharagpur</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="hobbies">
+                    <ul>
+                        <li><span>Reading</span><br>reading mythology books</li>
+                        <li><span>Music</span><br>Listening to melodies music</li>
+                        <li><span>Workouts</span><br>Doing medition and body workouts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Skills-->
+<div id="skill">
+<h1 class="title">My Skills</h1>
+<section>
+    <div class="container1" id="Skills">
+        <h1 class="heading1" style="color: aqua;">Technical skills</h1>
+        <div class="Technical-bars">
+            <div class="bar"><i class='bx bxl-c-plus-plus' style='color:#2d1f9e'></i>
+                <div class="info">
+                    <span>C++</span>
+                </div>
+                <div class="progress-line cplusplus">
+                    <span></span>
+                </div>
+            </div>
+            <div class="bar"><i class='bx bxl-java' style='color:#c43758'></i>
+                <div class="info">
+                    <span>Java</span>
+                </div>
+                <div class="progress-line java">
+                    <span></span>
+                </div>
+            </div>
+            <div class="bar"><i class='bx bxl-python' style='color:#c3e254'></i>
+                <div class="info">
+                    <span>Python</span>
+                </div>
+                <div class="progress-line python">
+                    <span></span>
+                </div>
+            </div>
+            <div class="bar"><i class='bx bxl-html5' style='color:#29c660'></i>
+                <div class="info">
+                    <span>HTML</span>
+                </div>
+                <div class="progress-line html">
+                    <span></span>
+                </div>
+            </div>
+            <div class="bar"><i class='bx bxl-css3' style='color:#af1aa0'></i>
+                <div class="info">
+                    <span>CSS</span>
+                </div>
+                <div class="progress-line css">
+                    <span></span>
+                </div>
+            </div>
+            <div class="bar"><i class='bx bxl-javascript' style='color:#12a8ca'></i>
+                <div class="info">
+                    <span>JavaScript</span>
+                </div>
+                <div class="progress-line javascript">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container2">
+        <h1 class="heading1" style="color: aqua;">Soft Skills</h1>
+        <div class="radial-bars">
+
+            <div class="radial-bar">
+                <svg x="0px" y="0px" viewBox="0 0 200 200">
+                    <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
+                    <circle class="path path-1" cx="100" cy="100" r="80"></circle>
+                </svg>
+                <div class="percentage">80%</div>
+                <div class="text">Communication</div>
+            </div>
+
+            <div class="radial-bar">
+                <svg x="0px" y="0px" viewBox="0 0 200 200">
+                    <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
+                    <circle class="path path-2" cx="100" cy="100" r="80"></circle>
+                </svg>
+                <div class="percentage">70%</div>
+                <div class="text">Creative Thinking</div>
+            </div>
+
+            <div class="radial-bar">
+                <svg x="0px" y="0px" viewBox="0 0 200 200">
+                    <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
+                    <circle class="path path-3" cx="100" cy="100" r="80"></circle>
+                </svg>
+                <div class="percentage">60%</div>
+                <div class="text">Problem Solving</div>
+            </div>
+            <div class="radial-bar">
+                <svg x="0px" y="0px" viewBox="0 0 200 200">
+                    <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
+                    <circle class="path path-4" cx="100" cy="100" r="80"></circle>
+                </svg>
+                <div class="percentage">75%</div>
+                <div class="text">Team Work</div>
+            </div>
+            <div class="radial-bar">
+                <svg x="0px" y="0px" viewBox="0 0 200 200">
+                    <circle class="progress-bar" cx="100" cy="100" r="80"></circle>
+                    <circle class="path path-5" cx="100" cy="100" r="80"></circle>
+                </svg>
+                <div class="percentage">85%</div>
+                <div class="text">Leadership</div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+</div>
+
+
+<!--Projects-->
+
+<section>
+    
+    <div id="portf" id="project">
+        <div class="main-text" id="project">
+            <h1 class="title">My Projects</h1>
+            <div class="portf-content">
+                <div class="row">
+                    <img src="images/ml.png">
+                    <div class="layer">
+                        <h5>Machine Learning</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi veritatis velit</p>
+                        <a href="https://colab.research.google.com/drive/19u2ZdkMHjgzaJb1XfHf5ga3O3JvOZzcb"><i class='bx bx-link-external' style="color: rgb(255, 255, 255);"></i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <img src="images/wd.png">
+                    <div class="layer">
+                        <h5>Website Development</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi veritatis </p>
+                        <a href="#"><i class='bx bx-link-external' style="color: rgb(255, 255, 255);"></i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <img src="images/ad.png">
+                    <div class="layer">
+                        <h5>App Development</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi veritatis </p>
+                        <a href="#"><i class='bx bx-link-external' style="color: rgb(255, 255, 255);"></i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <img src="images/ad.png">
+                    <div class="layer">
+                        <h5>App Development</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi veritatis velit </p>
+                        <a href="#"><i class='bx bx-link-external' style="color: rgb(255, 255, 255);"></i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <img src="images/block.png">
+                    <div class="layer">
+                        <h5>Block Chain</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi veritatis </p>
+                        <a href="#"><i class='bx bx-link-external' style="color: rgb(255, 255, 255);"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- contact-->
+
+<div id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me</h1>
+                <p><i class='bx bxl-gmail' style='color:#2bd8e8'  ></i>mrpraveenkumar@gmail.com</p>
+                <p><i class='bx bxs-phone' style='color:#2bd8e8'></i></i>+91 7207483533</p>
+
+                
+                <div class="social-icons">
+    
+                    <a href="https://www.linkedin.com/in/praveen-kumar-16a521250/" class="linkedin" ><i class='bx bxl-linkedin-square'></i></a>
+                    <a href="https://github.com/praveenkumar949" class="github"><i class='bx bxl-github'></i></a>
+                    <a href="https://www.instagram.com/mr__.pandu__/" class="instagram"><i class='bx bxl-instagram' ></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100077463090343" class="facebook"><i class='bx bxl-facebook-circle'></i></a>
+                    <a href="https://x.com/Prawin_Kumar1?t=hFawo0q_-KuNpBWkBc-2jg&s=09 " class="twitter"><i class='bx bxl-twitter'></i></a>
+                </div>
+
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="Email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" row="6" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn-box btn2">Submit</button>
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>Copyright @ Praveen. Lovely Professional university</p>
+    </div>
+</div>
+<script src="main.js"></script>
+
+</body>
+</html>
