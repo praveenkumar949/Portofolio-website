@@ -9,12 +9,11 @@ var typed = new Typed(".text", {
 
 /* for the paragragh typing in about me*/
 var typed = new Typed(".para", {
-    strings: ["Hello! I’m Patakokila Praveen Kumar, an aspiring Machine Learning Engineer from Andhra Pradesh. I completed my schooling at Smt. Annapurna Vidya Niketan, Velivennu, with a stellar 97% aggregate, and my intermediate education at Sasi Junior College, Velivennu, achieving a 94% score. Currently, I’m pursuing my Bachelor’s in Computer Science and Engineering at Lovely Professional University, Punjab, with a specialization in Machine Learning. My journey so far has been fueled by hands-on experience with multiple machine learning projects, where I’ve developed a deep interest in data-driven solutions and artificial intelligence. My ultimate goal is to become a Machine Learning Engineer, where I can continue to learn, sharpen my skills, and contribute to impactful projects."],
-    typeSpeed: 10,
+    strings: ["I am Patakokila Praveen Kumar, a Machine Learning and AI enthusiast pursuing B.Tech in Computer Science and Engineering at Lovely Professional University, India. With expertise in deep learning, NLP, and computer vision, I specialize in model evaluation, optimization, and data preprocessing using TensorFlow, Keras, and Scikit-learn. I have interned as a Machine Learning Engineer at Acadomer, gaining hands-on experience in ML algorithms and real-world applications. My research on POS tagging and spell-checking, published in the Hinweis RTET Conference (Scopus and Crossref indexed), showcases my contributions to NLP. I am also skilled in web development (HTML, CSS, JavaScript) and actively preparing for placements, seeking opportunities in ML, AI, and DevOps."],
+    typeSpeed: 20,
     loop: false,
     showCursor: false,
 });
-
 
 
 /*for tab-link */
@@ -31,6 +30,11 @@ var tablinks = document.getElementsByClassName("tab-links");
         document.getElementById(tabname).classList.add("active-tab");
         
     }
+// Open the "Education" tab by default when the page loads
+window.onload = function () {
+    document.getElementsByClassName("tab-links")[0].classList.add("active-link");
+    document.getElementById("education").classList.add("active-tab");
+};
 
 /* for small screen menu bar */
 var sidemenu = document.getElementById("sidemenu");
