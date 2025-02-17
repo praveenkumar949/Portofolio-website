@@ -4,6 +4,7 @@
      font-family: 'Poppins', sans-serif;
      box-sizing: border-box;
 }
+
 html{
     scroll-behavior: smooth;
 }
@@ -23,13 +24,19 @@ body{
     100% { background-position: 0% 50%; }
 }
 
+
+
+section.active, #about.active, #skills.active, #project.active, #contact.active {
+    transition: transform 0.5s ease;
+    
+  }
+
 #header{
     width: 100%;
     height: 100vh;
     background-image: url(images/photo1.jpg);
     background-size: cover;
     background-position: center;
-    
 }
 .container{
     padding: 10px 10%;
@@ -102,39 +109,80 @@ nav ul li a:hover::after{
     0 0 50px cyan, 0 0 100px cyan,
     0 0 200px cyan ,0 0 400px cyan
 }
-.header-text{
-    margin-top: 7%;
-    font-size: 30px;
 
+#header.active{
+.header-text{
     opacity: 0;
     transition: .5s;
     animation: slideRight 1s ease forwards;
 }
+}
+
+.header-text{
+    margin-top: 7%;
+    font-size: 30px;
+}
+
+#header.active{
+    .header-text h1{
+        transition: .5s;
+        opacity: 0;
+        animation: slideTop 1s ease forwards;
+        
+    }
+}
+
 .header-text h1{
     font-size: 60px;
     margin-top: 20px;
-
-    
-    transition: .5s;
-    opacity: 0;
-    animation: slideTop 1s ease forwards;
-
 }
+
+#header.active{
+    .header-text h1 span{
+        transition: .5s;
+        opacity: 0;
+        animation: slideTop 1s ease forwards;
+        animation-delay: .5s;
+        
+    }
+}
+
 .header-text h1 span{
     color: #18a5cc;
-
-    transition: .5s;
-    opacity: 0;
-    animation: slideBottom 1s ease forwards;
-    animation-delay: .5s;
 }
+
+#header.active{
+    .header-text h2{
+
+    
+        transition: .5s;
+        opacity: 0;
+        animation: slideBottom 1s ease forwards;
+        
+    }
+}
+
 .header-text h2{
     font-size: 32px;
     font-weight: 700;
 }
+
 .header-text h2 span{
     color: #0ef;
 }
+
+
+#header.active{
+    .btn-box{
+
+    
+        opacity: 0;
+        animation: slideLeft 1s ease forwards;
+        animation-delay: .5s;
+        
+    }
+}
+
 .btn-box{
     display: inline-block;
     margin: 30px auto;
@@ -148,15 +196,17 @@ nav ul li a:hover::after{
     transition: background 0.5s;
     border-radius: 50px;
 
-    opacity: 0;
-    animation: slideLeft 1s ease forwards;
-    animation-delay: .5s;
-}
-.btn-box:hover{
-    
-    background: rgb(59, 167, 174);
 
 }
+
+.btn-box:hover{
+    background: rgb(59, 167, 174);
+}
+
+
+
+
+
 /*-----about--------*/
 
 #about{
@@ -171,19 +221,30 @@ nav ul li a:hover::after{
 .about-col-1{
     flex-basis: 35%;
 }
-.about-col-1 img{
-    width: 100%;
-    border-radius: 15px;
 
+
+#about.active{
+.about-col-1 img{
     opacity: 0;
     animation: slideRight 1s ease forwards;
     animation-delay: .5s;
 }
-.resume{
-   
+}
 
+
+
+
+#about.active{
+    .resume{
+        opacity: 0;
+        animation: slideLeft 1s ease forwards;
+        animation-delay: .5s;
+    }
+    }
+.resume{
     display: inline-block;
     margin: 40px 57px;
+    margin-left: 85px;
     width: fit-content;
     font-size: 16px;
     border: 1px solid #0ef;
@@ -192,37 +253,54 @@ nav ul li a:hover::after{
     color: rgb(255, 255, 255);
     transition: background 0.5s;
     border-radius: 50px;
-
-    opacity: 0;
-    animation: slideLeft 1s ease forwards;
-    animation-delay: .5s;
 }
 .resume:hover{
     background: rgb(59, 167, 174);
 }
+
 .about-col-2{
     flex-basis: 60%;
 
 }
+
+#about.active{
+    .sub-title{
+        transition: .5s;
+        opacity: 0;
+        animation: slideRight 1s ease forwards;
+        animation-delay: .3s;
+    }
+    }
+
+
 .sub-title{
     font-size: 60px;
     font-weight: 600;
     color: #289cd2;
-
-    transition: .5s;
-    opacity: 0;
-    animation: slideLeft 1s ease forwards;
-    animation-delay: .5s;
 }
+
+#about.active{
+    .tab-titles{
+        opacity: 0;
+        transition: .5s;
+        animation: slideTop 1s ease forwards;
+    }
+    }
+
+
 .tab-titles{
     display: flex;
     margin: 20px 0 40px;
     color: #0abcd4;
-
-    opacity: 0;
-    transition: .5s;
-    animation: slideTop 1s ease forwards;
 }
+
+#about.active{
+    .tab-links{
+        opacity: 0;
+        animation: slideTop .5s ease forwards;
+        animation-delay: calc(.2s * var(--i));
+    }
+    }
 .tab-links{
     margin-right: 50px;
     font-size: 18px;
@@ -231,10 +309,12 @@ nav ul li a:hover::after{
     position: relative; 
 
 
-    opacity: 0;
-    animation: slideTop .5s ease forwards;
-    animation-delay: calc(.2s * var(--i));
+
 }
+
+
+
+
 .tab-links::after{
     content: '';
     width: 0;
@@ -252,14 +332,22 @@ nav ul li a:hover::after{
 .tab-links.active-link::after{
     width: 50%;
 }
+#about.active{
 .tab-contents ul li{
-    list-style: none;
-    margin: 10px 0;
-
     transition: .5s;
     opacity: 0;
     animation: slideRight 1s ease forwards;
 }
+}
+
+.tab-contents ul li{
+    list-style: none;
+    margin: 10px 0;
+
+}
+
+
+
 .tab-contents ul li span{
     color: #1babbe;
     font-size: 14px;
@@ -276,7 +364,18 @@ nav ul li a:hover::after{
     
 }
 
-/* Updated Background Color */
+
+
+/* Skills */
+
+#skills.active{
+    #skills{
+        opacity: 0;
+    transition: .5s;
+    animation: slideRight 1s ease forwards;
+    }
+}
+
 #skills {
     text-align: center;
     padding: 60px 0;
@@ -285,6 +384,13 @@ nav ul li a:hover::after{
 }
 
 /* Title */
+#skills.active{
+    .title{
+        opacity: 0;
+        transition: .5s;
+        animation: slideTop 1s ease forwards;
+    }
+}
 .title {
     font-size: 50px;
     color: #8ebeed;
@@ -293,12 +399,22 @@ nav ul li a:hover::after{
 }
 
 /* Skills Container */
+#skills.active{
+    .skills-container{
+        opacity: 0;
+    transition: .5s;
+    animation: slideRight 1s ease forwards;
+    }
+}
 .skills-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
+    
 }
+
+
 
 /* Skills Category */
 .skills-category {
@@ -311,6 +427,13 @@ nav ul li a:hover::after{
 }
 
 /* Section Heading */
+#skills.active{
+    .skills-heading {
+        opacity: 0;
+    transition: .5s;
+    animation: slideRight 1s ease forwards;
+    }
+    }
 .skills-heading {
     font-size: 24px;
     color: #c6e0ec;
@@ -319,6 +442,14 @@ nav ul li a:hover::after{
 }
 
 /* Skills List */
+
+#skills.active{
+    .skills-list{
+        opacity: 0;
+    transition: .5s;
+    animation: slideTop 1s ease forwards;
+    }
+    }
 .skills-list {
     display: flex;
     flex-wrap: wrap;
@@ -326,7 +457,17 @@ nav ul li a:hover::after{
     gap: 15px;
 }
 
+
+
 /* Skill Box */
+#skills.active{
+.skill-box {
+    opacity: 0;
+    animation: slideTop .5s ease forwards;
+    animation-delay: calc(.1s * var(--i));
+}
+}
+
 .skill-box {
     color: #fff;
     font-size: 18px;
@@ -340,6 +481,8 @@ nav ul li a:hover::after{
     transition: all 0.3s ease;
     cursor: pointer;
 }
+
+
 
 /* Skill Colors */
 .c-plus-plus { background-color: #00599C; }    /* C++ */
@@ -382,16 +525,27 @@ nav ul li a:hover::after{
 
 
 /* Projects */
-.main-text{
 
+#project.active{
+    .title1{
+        opacity: 0;
+        transition: .5s;
+        animation: slideTop 1s ease forwards;
+    }
+}
+.title1{
+    font-size: 50px;
+    color: #8ebeed;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.main-text{
     padding: 120px 0;
     margin-top: 10px;
 
     text-align: center;
-
-    transition: .5s;
-    opacity: 0;
-    animation: slideTop 1s ease forwards;
 }
 .main-text h5{
     font-size: 60px;
@@ -400,12 +554,20 @@ nav ul li a:hover::after{
     color: #0ef;
     margin: auto;
 
-    
 }
 .portf-content{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(359px,auto));
 }
+
+#project.active{
+    .row{
+        opacity: 0;
+        animation: slideRight .5s ease forwards;
+        animation-delay: calc(.2s * var(--i));
+    }
+}
+
 .row{
     position: relative;
     overflow: hidden;
@@ -468,27 +630,55 @@ nav ul li a:hover::after{
 }
 
 /*conatct*/
+#contact.active{
+    .sub-title1{
+    
+        transition: .5s;
+        opacity: 0;
+        animation: slideLeft 1s ease forwards;
+        animation-delay: .5s;
+    }
+}
+.sub-title1{
+    font-size: 60px;
+    font-weight: 600;
+    color: #289cd2;
+
+}
 .contact-left{
     flex-basis: 35%;
 }
 .contact-right{
     flex-basis: 60%;
 }
+
+#contact.active{
+    .contact-left p{
+
+        transition: .5s;
+        opacity: 0;
+        animation: slideLeft 1s ease forwards;
+    }
+}
 .contact-left p{
     margin-top: 30px;
 
-    transition: .5s;
-    opacity: 0;
-    animation: slideLeft 1s ease forwards;
+}
+
+#contact.active{
+    .contact-left p i{
+
+        transition: .5s;
+        opacity: 0;
+        animation: slideRight 1s ease forwards;
+    }
 }
 .contact-left p i{
     margin-right: 15px;
     font-size: 25px;
 
-    transition: .5s;
-    opacity: 0;
-    animation: slideRight 1s ease forwards;
 }
+
 .social-icons{
     margin-top: 40px;
 }
@@ -500,45 +690,59 @@ nav ul li a:hover::after{
     transition: transform 0.5s color 0.5s;
     color: #ffffff;
 }
+#contact.active{
+    .social-icons{
+        transition: .3s;
+        opacity: 0;
+        animation: slideTop .5s ease forwards;
+        animation-delay: calc(.2s * var(--i));
+    }
+}
 .social-icons a:hover{
-    /*color: #0ef;*/
     transform: translateY(-5px);
-
-    
-    
 }
 
 .facebook:hover {
-    color: #406ac5; /* Facebook Blue */
-    transform: scale(1.1); /* Slightly enlarges the icon */
+    color: #406ac5; 
+    transform: scale(1.1); 
 }
 .leetcode:hover {
-    color: #d06a20; /* Facebook Blue */
-    transform: scale(1.1); /* Slightly enlarges the icon */
+    color: #d06a20; 
+    transform: scale(1.1); 
 }
 .github:hover {
-    color: #120f0f; /* Facebook Blue */
-    transform: scale(1.1); /* Slightly enlarges the icon */
+    color: #120f0f; 
+    transform: scale(1.1);
 }
 
 .twitter:hover {
-    color: #1da1f2; /* Twitter Blue */
-    transform: rotate(5deg); /* Rotates the icon */
+    color: #1da1f2;
+    transform: rotate(5deg); 
 }
 
 .instagram:hover {
-    color: #e1306c; /* Instagram Pink */
-    transform: scale(1.2) rotate(10deg); /* Enlarges and rotates */
+    color: #e1306c; 
+    transform: scale(1.2) rotate(10deg);
 }
 
 .linkedin:hover {
-    color: #0077b5; /* LinkedIn Blue */
-    transform: translateY(-10px); /* Moves the icon higher */
+    color: #0077b5; 
+    transform: translateY(-10px); 
 }
 
 .coontact-right form{
     width: 100%;
 }
+
+#contact.active{
+    form input, form textarea{
+
+        transition: .5s;
+        opacity: 0;
+        animation: slideRight 1s ease forwards;
+    }
+}
+
 form input, form textarea{
     width: 100%;
     border: 0;
@@ -549,14 +753,20 @@ form input, form textarea{
     color: #fff;
     font-size: 18px;
     border-radius: 6px;
-
-    transition: .5s;
-    opacity: 0;
-    animation: slideRight 1s ease forwards;
 } 
 .btn-box.btn2{
     display: inline-block;
     background: rgb(51, 223, 246);
+}
+
+#contact.active{
+    form .btn2{
+
+    
+        transition: .5s;
+        opacity: 0;
+        animation: slideTop 1s ease forwards;
+    }
 }
 form .btn2{
     padding: 14px 60px;
@@ -564,6 +774,7 @@ form .btn2{
     margin-top: 20px;
     cursor: pointer;
     color: rgb(0, 0, 0);
+
 }
 form .btn2:hover{
     background: rgb(255, 255, 255);
