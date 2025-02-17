@@ -48,13 +48,13 @@ nav{
     width: 100%;
     padding: 0 10%;
     z-index: 100;
-    background: #535b5e;
-    
-
     display: flex;
     align-items: center;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: center; /* Center items horizontally */
+    height: 40px; /* Adjust the height as needed */
+    background-color: #333; /* Example background color */
+    padding: 0 20px; /* Optional padding */
     
 }
 .logo{
