@@ -26,6 +26,13 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+/* for the paragragh typing in about me*/
+var typed = new Typed(".para1", {
+  strings: ["🌟Work hard in silence, let success make the noise.🌟"],
+  typeSpeed: 20,
+  loop: false,
+  showCursor: false,
+});
 
 /* for the job role typing in home page*/
 var typed = new Typed(".text", {
