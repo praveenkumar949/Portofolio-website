@@ -1,3 +1,32 @@
+document.addEventListener('DOMContentLoaded', function() {
+    // Intersection Observer for section effects
+    const sections = document.querySelectorAll('section, #header, #about, #skills, #project, #contact');
+    const observerOptions = {
+      root: null, // observing relative to the viewport
+      rootMargin: '0px',
+      threshold: 0.5 // trigger when 50% of the section is visible
+    };
+  
+    const observerCallback = function(entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Add a class to apply effects
+          entry.target.classList.add('active');
+        } else {
+          // Remove the class if not in view
+          entry.target.classList.remove('active');
+        }
+      });
+    };
+  
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+  
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  });
+
+
 /* for the job role typing in home page*/
 var typed = new Typed(".text", {
     strings: ["Web Developer", "Software Engineer", "Machine Learning Engineer."],
