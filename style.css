@@ -859,6 +859,9 @@ nav .bx{
     .header-text h2{
         font-size: 20px;
     }
+     .para1{
+        display: none;
+    }
     nav .bx{
         display: block;
         font-size: 25px;
