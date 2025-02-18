@@ -190,13 +190,21 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbyQ7-_J2ULnQZPHL19Na0
   const msg = document.getElementById("msg")
   form.addEventListener('submit', e => {
     e.preventDefault()
+
+
+    // Show the alert message immediately
+    msg.innerHTML = "Message sent successfully!";
+    
+
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
       .then(response => {
         msg.innerHTML = "Message sent successfully!"
         setTimeout(function(){
             msg.innerHTML=""
-        },5000)
-        form.reset()
+            form.reset();
+        },10)
+  
+
       })
       .catch(error => console.error('Error!', error.message))
   })
