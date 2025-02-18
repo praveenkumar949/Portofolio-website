@@ -185,32 +185,18 @@ function closemenu(){
 
 /*contact details*/
 
-
-const scriptURL = 'https://script.google.com/macros/s/AKfycbyQ7-_J2ULnQZPHL19Na0a3aNUqo8-IIjSPGzeu_JIdArrWqpSCcxduewLebOUAOP9K/exec'
+const scriptURL = 'https://script.google.com/macros/s/AKfycbyQ7-_J2ULnQZPHL19Na0a3aNUqo8-IIjSPGzeu_JIdArrWqpSCcxduewLebOUAOP9K/exec '
   const form = document.forms['submit-to-google-sheet']
   const msg = document.getElementById("msg")
   form.addEventListener('submit', e => {
     e.preventDefault()
-    // Show the alert message immediately
-    msg.innerHTML = "Message sent successfully!";
-    setTimeout(function() {
-        msg.innerHTML = "";
-    }, 5000);
-
-    // Reset the form
-    form.reset();
-
-    // Submit the form data
-    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-        .then(response => {
-            // Handle successful submission if needed
-        })
-        .catch(error => {
-            console.error('Error!', error.message);
-            // Optionally, show an error message to the user
-            msg.innerHTML = "There was an error sending your message.";
-            setTimeout(function() {
-                msg.innerHTML = "";
-            }, 5000);
-        });
-});
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        msg.innerHTML = "Message sent successfully!"
+        setTimeout(function(){
+            msg.innerHTML=""
+        },5000)
+        form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
