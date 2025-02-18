@@ -1,8 +1,53 @@
+// document.addEventListener('DOMContentLoaded', function() {
+//   // Intersection Observer for section effects
+//   const sections = document.querySelectorAll('section, #header, #about, #skills, #project, #contact');
+  
+//   // Hide sections initially
+//   sections.forEach(section => {
+//       section.style.opacity = '0';
+//       section.style.visibility = 'hidden';
+//   });
+  
+//   const observerOptions = {
+//       root: null, // observing relative to the viewport
+//       rootMargin: '0px',
+//       threshold: 0.5 // trigger when 50% of the section is visible
+//   };
+
+//   const observerCallback = function(entries, observer) {
+//       entries.forEach(entry => {
+//           if (entry.isIntersecting && !entry.target.classList.contains('active')) {
+//               // Add a class to apply effects only once
+//               entry.target.classList.add('active');
+//               entry.target.style.opacity = '1';
+//               entry.target.style.visibility = 'visible';
+//               observer.unobserve(entry.target); // Stop observing once animated
+//           }
+//       });
+//   };
+
+//   const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+//   sections.forEach(section => {
+//       observer.observe(section);
+//   });
+// });
+
+// /* for the paragragh typing in about me*/
+// var typed = new Typed(".para1", {
+//   strings: ["🌟Work hard in silence, let success make the noise.🌟"],
+//   typeSpeed: 20,
+//   loop: false,
+//   showCursor: false,
+// });
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
   // Intersection Observer for section effects
-  const sections = document.querySelectorAll('section, #header, #about, #skills, #project, #contact');
+  const sections = document.querySelectorAll('section, #about, #skills, #project, #contact');
   
-  // Hide sections initially
+  // Hide sections initially (excluding the header)
   sections.forEach(section => {
       section.style.opacity = '0';
       section.style.visibility = 'hidden';
@@ -31,15 +76,65 @@ document.addEventListener('DOMContentLoaded', function() {
   sections.forEach(section => {
       observer.observe(section);
   });
+
+  // Ensure the header is always visible
+  const header = document.querySelector('#header');
+  if (header) {
+      header.style.opacity = '1';
+      header.style.visibility = 'visible';
+  }
+
+  // Function to handle navigation clicks
+  document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', function(event) {
+          event.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetSection = document.querySelector(targetId);
+
+          if (targetSection) {
+              // Temporarily disable the Intersection Observer
+              observer.disconnect();
+
+              // Scroll to the target section
+              targetSection.scrollIntoView({ behavior: 'smooth' });
+
+              // Ensure only the target section is animated
+              sections.forEach(section => {
+                  if (section !== targetSection) {
+                      section.style.opacity = '0';
+                      section.style.visibility = 'hidden';
+                      section.classList.remove('active');
+                  }
+              });
+
+              // Animate the target section if it hasn't been animated yet
+              if (!targetSection.classList.contains('active')) {
+                  targetSection.classList.add('active');
+                  targetSection.style.opacity = '1';
+                  targetSection.style.visibility = 'visible';
+              }
+
+              // Re-enable the Intersection Observer after a short delay
+              setTimeout(() => {
+                  sections.forEach(section => {
+                      observer.observe(section);
+                  });
+              }, 500); // Adjust the delay as needed
+          }
+      });
+  });
+
+  // // Ensure the home section is animated on page load
+  const homeSection = document.querySelector('section, #header');
+  if (homeSection) {
+      homeSection.style.opacity = '1';
+      homeSection.style.visibility = 'visible';
+      homeSection.classList.add('active');
+      observer.unobserve(homeSection); // Stop observing once animated
+  }
 });
 
-/* for the paragragh typing in about me*/
-var typed = new Typed(".para1", {
-  strings: ["🌟Work hard in silence, let success make the noise.🌟"],
-  typeSpeed: 20,
-  loop: false,
-  showCursor: false,
-});
+
 
 /* for the job role typing in home page*/
 var typed = new Typed(".text", {
@@ -96,13 +191,26 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbyQ7-_J2ULnQZPHL19Na0
   const msg = document.getElementById("msg")
   form.addEventListener('submit', e => {
     e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => {
-        msg.innerHTML = "Message sent successfully!"
-        setTimeout(function(){
-            msg.innerHTML=""
-        },5000)
-        form.reset()
-      })
-      .catch(error => console.error('Error!', error.message))
-  })
+    // Show the alert message immediately
+    msg.innerHTML = "Message sent successfully!";
+    setTimeout(function() {
+        msg.innerHTML = "";
+    }, 5000);
+
+    // Reset the form
+    form.reset();
+
+    // Submit the form data
+    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+            // Handle successful submission if needed
+        })
+        .catch(error => {
+            console.error('Error!', error.message);
+            // Optionally, show an error message to the user
+            msg.innerHTML = "There was an error sending your message.";
+            setTimeout(function() {
+                msg.innerHTML = "";
+            }, 5000);
+        });
+});
