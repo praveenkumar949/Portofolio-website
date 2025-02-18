@@ -950,6 +950,16 @@ nav .bx{
     .row p{
         font-size: 13px;
     }
+
+     section, #about, #skills, #project, #contact {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+    
+      section.active, #about.active, #skills.active, #project.active, #contact.active {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
    
     
 }
