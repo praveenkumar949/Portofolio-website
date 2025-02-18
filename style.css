@@ -463,8 +463,8 @@ nav ul li a:hover::after{
 #skills.active{
 .skill-box {
     opacity: 0;
-    animation: slideTop .5s ease forwards;
-    animation-delay: calc(.1s * var(--i));
+    animation: slideTop .3s ease forwards;
+    animation-delay: calc(.05s * var(--i));
 }
 }
 
