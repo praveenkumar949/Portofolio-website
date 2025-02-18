@@ -1,39 +1,3 @@
-// document.addEventListener('DOMContentLoaded', function() {
-//   // Intersection Observer for section effects
-//   const sections = document.querySelectorAll('section, #header, #about, #skills, #project, #contact');
-  
-//   // Hide sections initially
-//   sections.forEach(section => {
-//       section.style.opacity = '0';
-//       section.style.visibility = 'hidden';
-//   });
-  
-//   const observerOptions = {
-//       root: null, // observing relative to the viewport
-//       rootMargin: '0px',
-//       threshold: 0.5 // trigger when 50% of the section is visible
-//   };
-
-//   const observerCallback = function(entries, observer) {
-//       entries.forEach(entry => {
-//           if (entry.isIntersecting && !entry.target.classList.contains('active')) {
-//               // Add a class to apply effects only once
-//               entry.target.classList.add('active');
-//               entry.target.style.opacity = '1';
-//               entry.target.style.visibility = 'visible';
-//               observer.unobserve(entry.target); // Stop observing once animated
-//           }
-//       });
-//   };
-
-//   const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-//   sections.forEach(section => {
-//       observer.observe(section);
-//   });
-// });
-
-
 
 
 
