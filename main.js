@@ -1,9 +1,60 @@
+// For nav bar
+document.addEventListener('DOMContentLoaded', function () {
+    const sections = document.querySelectorAll('#header, #about, #skills, #services, #project, #contact'); // Include all sections
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Function to set the active link
+    function setActiveLink() {
+        let current = '';
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            const sectionId = section.getAttribute('id');
+
+            // Add a small offset for the header section
+            if (sectionId === 'header') {
+                if (pageYOffset < sectionTop + sectionHeight - 100) {
+                    current = sectionId;
+                }
+            } 
+            // Check if the Skills section is in view
+            else if (sectionId === 'skills') {
+                if (pageYOffset >= sectionTop - sectionHeight / 2 && pageYOffset < sectionTop + sectionHeight / 2) {
+                    current = sectionId;
+                }
+            } 
+            // Default logic for other sections
+            else if (pageYOffset >= sectionTop - sectionHeight / 3) {
+                current = sectionId;
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
+            }
+        });
+    }
+
+    // Set Home as active by default on page load
+    navLinks.forEach(link => {
+        if (link.getAttribute('href') === '#header') {
+            link.classList.add('active');
+        }
+    });
+
+    // Update active link on scroll
+    window.addEventListener('scroll', setActiveLink);
+});
 
 
 
+// for scrolling animations
 document.addEventListener('DOMContentLoaded', function() {
   // Intersection Observer for section effects
-  const sections = document.querySelectorAll('section, #about, #skills, #project, #contact');
+  const sections = document.querySelectorAll('section, #about, #skills, #services, #project, #contact');
   
   // Hide sections initially (excluding the header)
   sections.forEach(section => {
@@ -102,6 +153,7 @@ var typed = new Typed(".para1", {
   showCursor: false,
 });
 
+
 /* for the job role typing in home page*/
 var typed = new Typed(".text", {
     strings: ["Web Developer", "Software Engineer", "Machine Learning Engineer."],
@@ -114,10 +166,11 @@ var typed = new Typed(".text", {
 /* for the paragragh typing in about me*/
 var typed = new Typed(".para", {
     strings: ["I am Patakokila Praveen Kumar, a Machine Learning and AI enthusiast pursuing B.Tech in Computer Science and Engineering at Lovely Professional University, India. With expertise in deep learning, NLP, and computer vision, I specialize in model evaluation, optimization, and data preprocessing using TensorFlow, Keras, and Scikit-learn. I have interned as a Machine Learning Engineer at Acadomer, gaining hands-on experience in ML algorithms and real-world applications. My research on POS tagging and spell-checking, published in the Hinweis RTET Conference (Scopus and Crossref indexed), showcases my contributions to NLP. I am also skilled in web development (HTML, CSS, JavaScript) and actively preparing for placements, seeking opportunities in ML, AI, and DevOps."],
-    typeSpeed: 20,
+    typeSpeed: 5,
     loop: false,
     showCursor: false,
 });
+
 
 
 /*for tab-link */
@@ -134,11 +187,13 @@ var tablinks = document.getElementsByClassName("tab-links");
         document.getElementById(tabname).classList.add("active-tab");
         
     }
+
 // Open the "Education" tab by default when the page loads
 window.onload = function () {
     document.getElementsByClassName("tab-links")[0].classList.add("active-link");
     document.getElementById("education").classList.add("active-tab");
 };
+
 
 /* for small screen menu bar */
 var sidemenu = document.getElementById("sidemenu");
@@ -174,3 +229,7 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbyQ7-_J2ULnQZPHL19Na0
       })
       .catch(error => console.error('Error!', error.message))
   })
+
+
+
+
