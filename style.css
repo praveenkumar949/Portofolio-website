@@ -26,9 +26,10 @@ body{
 
 
 
-section.active, #about.active, #skills.active, #project.active, #contact.active {
+section.active, #about.active, #skills.active,#services.active, #project.active, #contact.active {
+    /* Add your desired effects here */
     transition: transform 0.5s ease;
-    
+    /* transform: scale(1.05); */
   }
 
 #header{
@@ -41,6 +42,7 @@ section.active, #about.active, #skills.active, #project.active, #contact.active 
 .container{
     padding: 10px 10%;
 }
+
 nav{
     position: fixed;
     top: 0;
@@ -57,6 +59,8 @@ nav{
     padding: 0 20px; /* Optional padding */
     
 }
+
+
 .logo{
     width: 150px;
     margin-top: 10px;
@@ -66,6 +70,10 @@ nav{
     transition: .5s;
     animation: slideRight 1s ease forwards;
 }
+.nav-link.active {
+    color: #49d9e4; /* Active link color */
+}
+
 nav ul li{
     display: inline-block;
     list-style: none;
@@ -128,7 +136,7 @@ nav ul li a:hover::after{
         transition: .5s;
         opacity: 0;
         animation: slideTop 1s ease forwards;
-        
+        /* animation-delay: .5s; */
     }
 }
 
@@ -206,7 +214,6 @@ nav ul li a:hover::after{
 
 
 
-
 /*-----about--------*/
 
 #about{
@@ -223,6 +230,7 @@ nav ul li a:hover::after{
 }
 
 
+
 #about.active{
 .about-col-1 img{
     opacity: 0;
@@ -230,7 +238,6 @@ nav ul li a:hover::after{
     animation-delay: .5s;
 }
 }
-
 
 
 
@@ -255,6 +262,29 @@ nav ul li a:hover::after{
     border-radius: 50px;
 }
 .resume:hover{
+    background: rgb(59, 167, 174);
+}
+#about.active{
+    .connect{
+        opacity: 0;
+        animation: slideLeft 1s ease forwards;
+        animation-delay: .5s;
+    }
+    }
+.connect{
+    display: inline-block;
+    margin: 1px 5px;
+    margin-left: 105px;
+    width: fit-content;
+    font-size: 16px;
+    border: 1px solid #0ef;
+    padding: 12px 28px;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    transition: background 0.5s;
+    border-radius: 50px;
+}
+.connect:hover{
     background: rgb(59, 167, 174);
 }
 
@@ -368,6 +398,7 @@ nav ul li a:hover::after{
 
 /* Skills */
 
+/* Updated Background Color */
 #skills.active{
     #skills{
         opacity: 0;
@@ -460,12 +491,22 @@ nav ul li a:hover::after{
 
 
 /* Skill Box */
-#skills.active{
-.skill-box {
-    opacity: 0;
-    animation: slideTop .3s ease forwards;
-    animation-delay: calc(.05s * var(--i));
+#skills.active {
+    .skill-box {
+        opacity: 0;
+        animation: slideTop .3s ease forwards;
+        animation-delay: calc(.05s * var(--i));
+    }
 }
+
+/* Define the fadeIn animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0.2; /* Start with opacity 0 */
+    }
+    to {
+        opacity: 1; /* End with opacity 1 */
+    }
 }
 
 .skill-box {
@@ -523,6 +564,100 @@ nav ul li a:hover::after{
 
 
 
+/*--------Certifications------------>*/
+
+    #services{
+        opacity: 0;
+        transition: .5s;
+        animation: slideRight 1s ease forwards;
+    }
+
+
+#services.active{
+    .sub-title{
+        opacity: 0;
+        transition: .5s;
+        animation: slideTop 1s ease forwards;
+    }
+}
+
+#services{
+    padding: 30px 0;
+
+  }
+
+  #services.active{
+    .services-list{
+        opacity: 0;
+        transition: .5s;
+        animation: slideTop 1s ease forwards;
+    }
+}
+  .services-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+
+  }
+  #services.active{
+    .services-list div{
+        opacity: 0;
+        transition: .5s;
+        animation: slideTop 1s ease forwards;
+    }
+}
+
+  .services-list div{
+    background: #262626;
+    padding: 40px;
+    font-size: 13px;
+    font-weight: 300;
+    border-radius: 10px;
+    transition: background 0.5s,transform 0.5s;
+  }
+
+  
+
+  .services-list div i{
+    font-size: 50px;
+    margin-bottom: 30px;
+  }
+
+  #services.active{
+    .services-list div h2{
+        opacity: 0;
+        transition: .5s;
+        animation: slideRight 1s ease forwards;
+    }
+}
+
+  .services-list div h2{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+  }
+  #services.active{
+    .services-list div a{
+        opacity: 0;
+        transition: .5s;
+        animation: slideTop 1s ease forwards;
+    }
+}
+
+
+  .services-list div a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 12px;
+    display: inline-block;
+}
+
+.services-list div:hover{
+  background: #00d5ff;
+  transform: translateY(-10px);
+}
+  
 
 /* Projects */
 
@@ -630,6 +765,8 @@ nav ul li a:hover::after{
 }
 
 /*conatct*/
+
+
 #contact.active{
     .sub-title1{
     
@@ -699,35 +836,36 @@ nav ul li a:hover::after{
     }
 }
 .social-icons a:hover{
+    /*color: #0ef;*/
     transform: translateY(-5px);
 }
 
 .facebook:hover {
-    color: #406ac5; 
-    transform: scale(1.1); 
+    color: #406ac5; /* Facebook Blue */
+    transform: scale(1.1); /* Slightly enlarges the icon */
 }
 .leetcode:hover {
-    color: #d06a20; 
-    transform: scale(1.1); 
+    color: #d06a20; /* Facebook Blue */
+    transform: scale(1.1); /* Slightly enlarges the icon */
 }
 .github:hover {
-    color: #120f0f; 
-    transform: scale(1.1);
+    color: #120f0f; /* Facebook Blue */
+    transform: scale(1.1); /* Slightly enlarges the icon */
 }
 
 .twitter:hover {
-    color: #1da1f2;
-    transform: rotate(5deg); 
+    color: #1da1f2; /* Twitter Blue */
+    transform: rotate(5deg); /* Rotates the icon */
 }
 
 .instagram:hover {
-    color: #e1306c; 
-    transform: scale(1.2) rotate(10deg);
+    color: #e1306c; /* Instagram Pink */
+    transform: scale(1.2) rotate(10deg); /* Enlarges and rotates */
 }
 
 .linkedin:hover {
-    color: #0077b5; 
-    transform: translateY(-10px); 
+    color: #0077b5; /* LinkedIn Blue */
+    transform: translateY(-10px); /* Moves the icon higher */
 }
 
 .coontact-right form{
@@ -848,18 +986,19 @@ nav .bx{
     #header{
         background-image: url(images/phone.png.jpg);
     }
+
     .header-text{
-        margin-top: 145%;
+        margin-top: 120%;
+        /* margin-top: 100%; */
         font-size: 10px;
     }
     .header-text h1{
         font-size: 30px;
-        
     }
     .header-text h2{
         font-size: 20px;
     }
-     .para1{
+    .para1{
         display: none;
     }
     nav .bx{
@@ -890,6 +1029,7 @@ nav .bx{
     .btn-box{
         display: absolute;
     }
+    
     .resume{
         border-radius: 50px;
         
@@ -951,12 +1091,12 @@ nav .bx{
         font-size: 13px;
     }
 
-     section, #about, #skills, #project, #contact {
+    section, #about, #skills,#services, #project, #contact {
         opacity: 1 !important;
         visibility: visible !important;
       }
     
-      section.active, #about.active, #skills.active, #project.active, #contact.active {
+      section.active, #about.active, #skills.active,#services.active, #project.active, #contact.active {
         opacity: 1 !important;
         visibility: visible !important;
       }
