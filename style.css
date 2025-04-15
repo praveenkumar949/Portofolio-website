@@ -999,6 +999,7 @@ nav .bx{
         font-size: 20px;
     }
     .para1{
+         line-height: 1.4;
         display: none;
     }
     nav .bx{
