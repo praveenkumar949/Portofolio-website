@@ -3476,6 +3476,12 @@ img {
     width: 200px;
     height: auto;
   }
+  .cover-letter-btn{
+    display: none;
+  }
+  .portfolio-overlay .mat {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
