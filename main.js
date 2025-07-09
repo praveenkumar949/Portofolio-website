@@ -758,11 +758,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-
+//conatct form
 document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.getElementById('contactForm');
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbxeROPtbkQSXA6zzIMYt4qoj9VtUiWt3FesbfbAAu8KE9l_8DsG7za-NZBpS9NZT1Nz/exec'; // <-- replace with yours!
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzXkKoe86vyjg6SrOtY3B-_QBdKxy6vYYo2U0onq8xX9FyEzYwSkm1yNj6pyLUEJY2wqw/exec';
 
   // Create message element if not present
   let msg = document.getElementById('msg');
@@ -793,6 +792,9 @@ document.addEventListener('DOMContentLoaded', () => {
         msg.innerHTML = '';
       }, 3000);
       contactForm.reset();
+
+      // 👇 Show confirmation dialog
+      window.alert("Thank you! Your message has been sent successfully. will get back to you soon.");
     })
     .catch(error => {
       console.error('Error!', error.message);
@@ -801,10 +803,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-
-
-
-
 
 // Modal functionality
     document.addEventListener('DOMContentLoaded', function() {
