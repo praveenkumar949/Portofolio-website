@@ -3457,6 +3457,14 @@ img {
   }
 }
 
+ .hero-image img {
+    width: 50%;
+    height: auto;
+  }
+ .about-image img {
+    width: 50%;
+    height: auto;
+  }
 
 
 
