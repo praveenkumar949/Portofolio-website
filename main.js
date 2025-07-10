@@ -759,11 +759,56 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 //conatct form
+// document.addEventListener('DOMContentLoaded', () => {
+//   const contactForm = document.getElementById('contactForm');
+//   const scriptURL = 'https://script.google.com/macros/s/AKfycbzXkKoe86vyjg6SrOtY3B-_QBdKxy6vYYo2U0onq8xX9FyEzYwSkm1yNj6pyLUEJY2wqw/exec';
+
+//   // Create message element if not present
+//   let msg = document.getElementById('msg');
+//   if (!msg) {
+//     msg = document.createElement('span');
+//     msg.id = 'msg';
+//     msg.style.display = 'block';
+//     msg.style.marginTop = '15px';
+//     msg.style.fontWeight = 'bold';
+//     contactForm.appendChild(msg);
+//   }
+
+//   contactForm.addEventListener('submit', function(e) {
+//     e.preventDefault();
+
+//     // Show immediate feedback
+//     msg.innerHTML = 'Sending message...';
+//     msg.style.color = '#007BFF';
+
+//     fetch(scriptURL, {
+//       method: 'POST',
+//       body: new FormData(contactForm)
+//     })
+//     .then(response => {
+//       msg.innerHTML = 'Message sent successfully!';
+//       msg.style.color = 'green';
+//       setTimeout(() => {
+//         msg.innerHTML = '';
+//       }, 3000);
+//       contactForm.reset();
+
+//       // 👇 Show confirmation dialog
+//       window.alert("Thank you! Your message has been sent successfully. will get back to you soon.");
+//     })
+//     .catch(error => {
+//       console.error('Error!', error.message);
+//       msg.innerHTML = 'Something went wrong. Please try again.';
+//       msg.style.color = 'red';
+//     });
+//   });
+// });
+
+
 document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.getElementById('contactForm');
   const scriptURL = 'https://script.google.com/macros/s/AKfycbzXkKoe86vyjg6SrOtY3B-_QBdKxy6vYYo2U0onq8xX9FyEzYwSkm1yNj6pyLUEJY2wqw/exec';
 
-  // Create message element if not present
   let msg = document.getElementById('msg');
   if (!msg) {
     msg = document.createElement('span');
@@ -777,7 +822,6 @@ document.addEventListener('DOMContentLoaded', () => {
   contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    // Show immediate feedback
     msg.innerHTML = 'Sending message...';
     msg.style.color = '#007BFF';
 
@@ -793,16 +837,58 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 3000);
       contactForm.reset();
 
-      // 👇 Show confirmation dialog
-      window.alert("Thank you! Your message has been sent successfully. will get back to you soon.");
+      // Replace alert with toast
+      showToast("✅ Thank you! Your message has been sent successfully. We'll get back to you soon.", "green");
     })
     .catch(error => {
       console.error('Error!', error.message);
       msg.innerHTML = 'Something went wrong. Please try again.';
       msg.style.color = 'red';
+
+      showToast("❌ Something went wrong. Please try again.", "red");
     });
   });
+
+  function showToast(message, color) {
+    const toastContainer = document.getElementById("toastContainer");
+
+    const toast = document.createElement("div");
+    toast.style.background = color;
+    toast.style.color = "#fff";
+    toast.style.padding = "15px 20px";
+    toast.style.borderRadius = "5px";
+    toast.style.boxShadow = "0 4px 6px rgba(0,0,0,0.1)";
+    toast.style.position = "relative";
+    toast.style.minWidth = "250px";
+    toast.style.overflow = "hidden";
+    toast.style.fontSize = "14px";
+    toast.textContent = message;
+
+    // Progress bar
+    const progress = document.createElement("div");
+    progress.style.position = "absolute";
+    progress.style.bottom = "0";
+    progress.style.left = "0";
+    progress.style.height = "4px";
+    progress.style.background = "rgba(255, 255, 255, 0.7)";
+    progress.style.width = "100%";
+    progress.style.transition = "width 3s linear";
+
+    toast.appendChild(progress);
+    toastContainer.appendChild(toast);
+
+    // Trigger progress bar animation
+    setTimeout(() => {
+      progress.style.width = "0%";
+    }, 100);
+
+    // Remove toast after 3s
+    setTimeout(() => {
+      toast.remove();
+    }, 3000);
+  }
 });
+
 
 // Modal functionality
     document.addEventListener('DOMContentLoaded', function() {
